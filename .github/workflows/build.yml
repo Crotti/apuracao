@@ -8,7 +8,8 @@ jobs:
       - uses: actions/setup-java@v4
         with: { distribution: temurin, java-version: 17 }
       - uses: gradle/actions/setup-gradle@v4
-        with: { gradle-version: 8.9, build-root-directory: apuracao/Apuracao }
+        with: { gradle-version: 8.9, build-root-directory: Apuracao }
       - run: gradle assembleDebug
+        working-directory: Apuracao
       - uses: actions/upload-artifact@v4
-        with: { name: apuracao-apk, path: app/build/outputs/apk/debug/app-debug.apk }
+        with: { name: apuracao-apk, path: Apuracao/app/build/outputs/apk/debug/app-debug.apk }
