@@ -71,7 +71,7 @@ object Tse {
         coletar(j, "cand", brutos)
         if (brutos.isEmpty()) throw Exception("campo cand não encontrado (" + j.keys().asSequence().take(6).joinToString(",") + ")")
         val l = brutos.distinctBy { it.optString("sqcand").ifEmpty { it.optString("n") } }.map {
-            Cand(it.optString("nm"), it.optString("vap").filter { ch -> ch.isDigit() }.toLongOrNull() ?: 0L, num(it.optString("pvap")))
+            Cand(it.optString("nmu").ifEmpty { it.optString("nm") }, it.optString("vap").filter { ch -> ch.isDigit() }.toLongOrNull() ?: 0L, num(it.optString("pvap")))
         }.sortedByDescending { it.votos }
         val pst = num(achar(j, "pst")?.toString() ?: "")
         return Resultado(l, pst, (j.optString("dg") + " " + j.optString("hg")).trim())
@@ -89,7 +89,7 @@ object Store {
                 .putString("v$i", String.format(br, "%,d votos", k.votos)).putFloat("f$i", k.pct.toFloat())
         }
         if (r.cands.size >= 2) e.putString("dif", String.format(br, "Vantagem de %,d votos", r.cands[0].votos - r.cands[1].votos))
-        e.putFloat("uf", r.urnas.toFloat()).putString("agora", agora)
+        e.putInt("ncand", r.cands.size).putFloat("uf", r.urnas.toFloat()).putString("agora", agora)
             .putString("urnas", String.format(br, "%.2f%% das urnas apuradas", r.urnas))
             .putString("st", String.format(br, "%.2f%% das urnas · atualizado %s", r.urnas, agora))
             .putString("aviso", "").apply()
@@ -216,7 +216,7 @@ class MainActivity : Activity() {
         tv(R.id.dif).text = s("dif")
         val aviso = s("aviso")
         tv(R.id.status).apply {
-            text = aviso.ifEmpty { "Atualizado às " + s("agora", "–") + " · automático a cada 60 s" }
+            text = aviso.ifEmpty { "Atualizado às " + s("agora", "–") + " · " + p.getInt("ncand", 0) + " candidatos lidos · v1.3" }
             setTextColor(if (aviso.isEmpty()) 0xFF9AA3AB.toInt() else 0xFFFFB300.toInt())
         }
     }
