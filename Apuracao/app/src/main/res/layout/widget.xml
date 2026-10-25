@@ -1,28 +1,34 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/root" android:layout_width="match_parent" android:layout_height="match_parent"
-    android:orientation="vertical" android:padding="12dp" android:background="#E6202124">
+    android:orientation="vertical" android:padding="14dp" android:background="@drawable/widget_bg">
     <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-        android:text="Presidente · 2º turno" android:textColor="#B0B0B0" android:textSize="11sp"/>
-    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+        android:text="PRESIDENTE 2026 · 2º TURNO" android:textColor="#9AA3AB" android:textSize="10sp" android:letterSpacing="0.08"/>
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal"
+        android:layout_marginTop="6dp" android:gravity="center_vertical">
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="● " android:textColor="#26A69A" android:textSize="14sp"/>
         <TextView android:id="@+id/n0" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content"
-            android:textColor="#FFFFFF" android:textSize="15sp" android:textStyle="bold"/>
+            android:singleLine="true" android:textColor="#FFFFFF" android:textSize="15sp" android:textStyle="bold"/>
         <TextView android:id="@+id/p0" android:layout_width="wrap_content" android:layout_height="wrap_content"
-            android:textColor="#FFFFFF" android:textSize="18sp" android:textStyle="bold"/>
+            android:fontFamily="sans-serif-medium" android:textColor="#FFFFFF" android:textSize="20sp"/>
     </LinearLayout>
     <TextView android:id="@+id/v0" android:layout_width="wrap_content" android:layout_height="wrap_content"
-        android:textColor="#B0B0B0" android:textSize="11sp"/>
+        android:layout_marginStart="18dp" android:textColor="#9AA3AB" android:textSize="11sp"/>
     <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal"
-        android:layout_marginTop="6dp">
+        android:layout_marginTop="6dp" android:gravity="center_vertical">
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="● " android:textColor="#FFB300" android:textSize="14sp"/>
         <TextView android:id="@+id/n1" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content"
-            android:textColor="#FFFFFF" android:textSize="15sp" android:textStyle="bold"/>
+            android:singleLine="true" android:textColor="#FFFFFF" android:textSize="15sp" android:textStyle="bold"/>
         <TextView android:id="@+id/p1" android:layout_width="wrap_content" android:layout_height="wrap_content"
-            android:textColor="#FFFFFF" android:textSize="18sp" android:textStyle="bold"/>
+            android:fontFamily="sans-serif-medium" android:textColor="#FFFFFF" android:textSize="20sp"/>
     </LinearLayout>
     <TextView android:id="@+id/v1" android:layout_width="wrap_content" android:layout_height="wrap_content"
-        android:textColor="#B0B0B0" android:textSize="11sp"/>
+        android:layout_marginStart="18dp" android:textColor="#9AA3AB" android:textSize="11sp"/>
     <ProgressBar android:id="@+id/bar" style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="match_parent" android:layout_height="8dp" android:layout_marginTop="8dp"
-        android:max="1000" android:progressTint="#2E7D32" android:progressBackgroundTint="#757575"/>
+        android:max="1000" android:progressTint="#26A69A" android:progressBackgroundTint="#FFB300"/>
+    <ProgressBar android:id="@+id/bar_u" style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent" android:layout_height="3dp" android:layout_marginTop="6dp"
+        android:max="1000" android:progressTint="#78909C" android:progressBackgroundTint="#2B3138"/>
     <TextView android:id="@+id/st" android:layout_width="wrap_content" android:layout_height="wrap_content"
-        android:layout_marginTop="4dp" android:textColor="#B0B0B0" android:textSize="10sp"/>
+        android:layout_marginTop="4dp" android:textColor="#9AA3AB" android:textSize="10sp"/>
 </LinearLayout>
